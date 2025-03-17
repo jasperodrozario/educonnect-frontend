@@ -1,3 +1,5 @@
+"use server";
+
 export async function POST(request) {
   try {
     const { message } = await request.json();
