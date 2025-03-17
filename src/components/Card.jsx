@@ -1,6 +1,6 @@
 export const Room = ({ name, description, topic, host, participants }) => {
   return (
-    <div className="my-5 py-3 px-4 rounded-md border border-gray-2 transition-transform duration-300 hover:scale-[1.02]">
+    <div className="py-3 px-4 rounded-md border border-gray-2 transition-transform duration-300 hover:scale-[1.02]">
       <div className="flex justify-between">
         <p className="mb-5 text-subtle-white text-xl transition-all duration-300 hover:text-orange-400">
           {name}
