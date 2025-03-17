@@ -5,13 +5,12 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import {
   IconEdit,
-  IconSave,
+  IconDeviceFloppy,
   IconX,
   IconMail,
   IconPhone,
   IconSchool,
   IconUser,
-  IconAlertCircle,
 } from "@tabler/icons-react";
 
 // Mock initial user data - in a real app, this would come from an API or context
@@ -124,7 +123,7 @@ export function ProfileForm() {
               onClick={() => handleEdit(field)}
               className="h-8 w-8 p-0 text-neutral-500"
             >
-              {/* <IconEdit size={16} /> */}
+              <IconEdit size={16} />
             </Button>
           )}
         </div>
@@ -166,7 +165,7 @@ export function ProfileForm() {
               </div>
             )}
 
-            <div className="mt-3 flex justify-end space-x-2">
+            <div className="my-3 flex justify-end space-x-2">
               <Button
                 variant="outline"
                 size="sm"
@@ -174,8 +173,7 @@ export function ProfileForm() {
                 className="text-neutral-600"
                 disabled={isSubmitting}
               >
-                <IconX size={16} className="mr-1" />
-                Cancel
+                <IconX size={16} />
               </Button>
               <Button
                 size="sm"
@@ -184,11 +182,10 @@ export function ProfileForm() {
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
-                  <span className="animate-pulse">Saving...</span>
+                  <span className="animate-pulse">•••</span>
                 ) : (
                   <>
-                    {/* <IconSave size={16} className="mr-1" /> */}
-                    Save
+                    <IconDeviceFloppy />
                   </>
                 )}
               </Button>

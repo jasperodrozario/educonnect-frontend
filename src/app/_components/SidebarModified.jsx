@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Sidebar, SidebarBody, SidebarLink } from "@/components/layout/Sidebar";
-import { DarkModeToggler } from "@/components/ui/DarkModeToggler";
+import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/Sidebar";
 
 import {
   IconBrandTabler,
@@ -44,7 +43,7 @@ export function SidebarModified({
     },
     {
       label: "Settings",
-      href: "#",
+      href: "/settings",
       icon: (
         <IconSettings className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
@@ -54,7 +53,7 @@ export function SidebarModified({
   // Login and logout links
   const loginLink = {
     label: "Login",
-    href: "#",
+    href: "/login",
     icon: (
       <IconLogout className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
     ),
@@ -129,7 +128,7 @@ export const Logo = () => {
       href="/"
       className="relative z-20 flex items-center space-x-2 font-normal text-black"
     >
-      <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-black dark:bg-white" />
+      <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-orange-600 dark:bg-white" />
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

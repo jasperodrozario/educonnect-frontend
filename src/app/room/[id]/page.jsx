@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { MessageSection } from "@/components/chat/MessageSection";
 import { ParticipantPanel } from "@/components/ui/ParticipantPanel";
+import { IconArrowLeft } from "@tabler/icons-react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 // Sample room data, later to be fetched from an API
@@ -106,6 +108,7 @@ const rooms = [
 ];
 
 export default function RoomPage() {
+  const router = useRouter();
   const params = useParams();
   const [room, setRoom] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -149,11 +152,19 @@ export default function RoomPage() {
 
   return (
     <div className="flex flex-col h-full w-full rounded-tl-2xl border border-neutral-200 bg-white md:overflow-scroll dark:border-neutral-700 dark:bg-neutral-900">
-      <header className="p-6 border-b border-neutral-200 dark:border-neutral-700">
+      <header className="py-6 px-8 border-b border-neutral-200 dark:border-neutral-700">
         <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold">{room.name}</h1>
-            <p className="text-sm text-neutral-500">{room.description}</p>
+          <div className="flex items-center space-y-7 space-x-2">
+            <button
+              onClick={() => router.back()}
+              className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-neutral-800"
+            >
+              <IconArrowLeft size={20} />
+            </button>
+            <span>
+              <h1 className="text-2xl font-bold mb-2">{room.name}</h1>
+              <p className="text-sm text-neutral-500">{room.description}</p>
+            </span>
           </div>
           <div className="flex items-center space-x-2">
             <span className="px-3 py-1 rounded-xl bg-[#525369] text-white text-xs font-bold">
