@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/Sidebar";
-import { DarkModeToggler } from "@/components/DarkModeToggler";
+import { Sidebar, SidebarBody, SidebarLink } from "@/components/layout/Sidebar";
+import { DarkModeToggler } from "@/components/ui/DarkModeToggler";
 
 import {
   IconBrandTabler,
@@ -22,7 +22,7 @@ export function SidebarModified({
 }) {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  // Define base links that don't change with login state
+  // Links that appear without authentication
   const baseLinks = [
     {
       label: "Dashboard",
@@ -37,7 +37,7 @@ export function SidebarModified({
   const authenticatedLinks = [
     {
       label: "Profile",
-      href: "#",
+      href: "/profile", // Updated href to route to the profile page
       icon: (
         <IconUserBolt className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
@@ -85,7 +85,7 @@ export function SidebarModified({
       )}
     >
       <Sidebar open={open} setOpen={setOpen} animate={animate}>
-        <SidebarBody className="justify-between gap-10">
+        <SidebarBody className="justify-between gap-2">
           <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
             {open ? <Logo /> : <LogoIcon />}
             <div className="mt-8 flex flex-col gap-2">
@@ -100,7 +100,7 @@ export function SidebarModified({
             {isLoggedIn ? (
               <SidebarLink
                 link={{
-                  label: "Manu Arora",
+                  label: "Jane Doe",
                   href: "/profile",
                   icon: (
                     <Image
@@ -135,7 +135,7 @@ export const Logo = () => {
         animate={{ opacity: 1 }}
         className="font-medium whitespace-pre text-black dark:text-white"
       >
-        <h1 className="p-0 m-0 font-bold text-[18px]">EduConnect</h1>
+        <h1 className="font-bold text-[18px]">EduConnect</h1>
       </motion.span>
     </Link>
   );

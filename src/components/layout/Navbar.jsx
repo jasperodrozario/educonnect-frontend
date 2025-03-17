@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { DarkModeToggler } from "@/components/DarkModeToggler";
+import { DarkModeToggler } from "@/components/ui/DarkModeToggler";
 
 export function Navbar() {
   return (

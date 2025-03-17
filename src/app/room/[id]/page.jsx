@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { MessageSection } from "@/components/ui/MessageSection";
-import { ParticipantPanel } from "@/components/ParticipantPanel";
+import { MessageSection } from "@/components/chat/MessageSection";
+import { ParticipantPanel } from "@/components/ui/ParticipantPanel";
 import Link from "next/link";
 
 // Sample room data, later to be fetched from an API
@@ -149,7 +149,7 @@ export default function RoomPage() {
 
   return (
     <div className="flex flex-col h-full w-full rounded-tl-2xl border border-neutral-200 bg-white md:overflow-scroll dark:border-neutral-700 dark:bg-neutral-900">
-      <header className="px-6 py-4 border-b border-neutral-200 dark:border-neutral-700">
+      <header className="p-6 border-b border-neutral-200 dark:border-neutral-700">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold">{room.name}</h1>

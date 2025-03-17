@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Room } from "@/components/Card";
+import { Room } from "@/components/ui/Card";
 import { SearchBar } from "@/components/ui/SearchBar";
 
 export function Dashboard() {
@@ -97,7 +97,7 @@ export function Dashboard() {
     <div className="h-full w-full rounded-tl-2xl border border-neutral-200 bg-white p-6 md:px-10 py-6 overflow-scroll dark:border-neutral-700 dark:bg-neutral-900">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="font-bold text-lg">Study Rooms</h1>
+          <h1 className="text-2xl font-bold">Study Rooms</h1>
           <span className="p-0 m-0 text-xs text-neutral-400 font-semibold">
             {displayedRooms.length} rooms available
           </span>
