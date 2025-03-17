@@ -4,25 +4,37 @@ import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/Sidebar";
 import { DarkModeToggler } from "@/components/DarkModeToggler";
 
 import {
-  IconArrowLeft,
   IconBrandTabler,
   IconSettings,
   IconUserBolt,
+  IconLogin,
+  IconLogout,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-export function SidebarModified({ children }) {
-  const links = [
+export function SidebarModified({
+  children,
+  loginStatus = false,
+  animate = true,
+}) {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  // Define base links that don't change with login state
+  const baseLinks = [
     {
       label: "Dashboard",
-      href: "#",
+      href: "/",
       icon: (
         <IconBrandTabler className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
+  ];
+
+  // Links that appear only when logged in
+  const authenticatedLinks = [
     {
       label: "Profile",
       href: "#",
@@ -37,13 +49,32 @@ export function SidebarModified({ children }) {
         <IconSettings className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
-    {
-      label: "Logout",
-      href: "#",
-      icon: (
-        <IconArrowLeft className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-      ),
-    },
+  ];
+
+  // Login and logout links
+  const loginLink = {
+    label: "Login",
+    href: "#",
+    icon: (
+      <IconLogout className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+    ),
+    onClick: () => setIsLoggedIn(true),
+  };
+
+  const logoutLink = {
+    label: "Logout",
+    href: "#",
+    icon: (
+      <IconLogin className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+    ),
+    onClick: () => setIsLoggedIn(loginStatus),
+  };
+
+  // Combine links based on authentication state
+  const links = [
+    ...baseLinks,
+    ...(isLoggedIn ? authenticatedLinks : []),
+    isLoggedIn ? logoutLink : loginLink,
   ];
   const [open, setOpen] = useState(false);
   return (
@@ -53,32 +84,38 @@ export function SidebarModified({ children }) {
         "h-screen"
       )}
     >
-      <Sidebar open={open} setOpen={setOpen}>
+      <Sidebar open={open} setOpen={setOpen} animate={animate}>
         <SidebarBody className="justify-between gap-10">
           <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
             {open ? <Logo /> : <LogoIcon />}
             <div className="mt-8 flex flex-col gap-2">
               {links.map((link, idx) => (
-                <SidebarLink key={idx} link={link} />
+                <div key={idx} onClick={link.onClick}>
+                  <SidebarLink link={link} />
+                </div>
               ))}
             </div>
           </div>
           <div>
-            <SidebarLink
-              link={{
-                label: "Manu Arora",
-                href: "#",
-                icon: (
-                  <Image
-                    src="https://assets.aceternity.com/manu.png"
-                    className="h-7 w-7 shrink-0 rounded-full"
-                    width={50}
-                    height={50}
-                    alt="Avatar"
-                  />
-                ),
-              }}
-            />
+            {isLoggedIn ? (
+              <SidebarLink
+                link={{
+                  label: "Manu Arora",
+                  href: "/profile",
+                  icon: (
+                    <Image
+                      src="https://assets.aceternity.com/manu.png"
+                      className="h-7 w-7 shrink-0 rounded-full"
+                      width={50}
+                      height={50}
+                      alt="Avatar"
+                    />
+                  ),
+                }}
+              />
+            ) : (
+              <div className=""></div>
+            )}
           </div>
         </SidebarBody>
       </Sidebar>
@@ -89,7 +126,7 @@ export function SidebarModified({ children }) {
 export const Logo = () => {
   return (
     <Link
-      href="#"
+      href="/"
       className="relative z-20 flex items-center space-x-2 font-normal text-black"
     >
       <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-black dark:bg-white" />
@@ -106,7 +143,7 @@ export const Logo = () => {
 export const LogoIcon = () => {
   return (
     <Link
-      href="#"
+      href="/"
       className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-black"
     >
       <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-black dark:bg-white" />

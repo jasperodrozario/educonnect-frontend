@@ -6,6 +6,7 @@ import { SearchBar } from "@/components/ui/SearchBar";
 export function Dashboard() {
   const allRooms = [
     {
+      id: "1",
       name: "Introduction to React",
       description: "Learn the basics of React and build your first app.",
       topic: "React",
@@ -13,6 +14,7 @@ export function Dashboard() {
       participants: 25,
     },
     {
+      id: "2",
       name: "Advanced JavaScript",
       description: "Dive deep into advanced JavaScript concepts.",
       topic: "JavaScript",
@@ -20,6 +22,7 @@ export function Dashboard() {
       participants: 18,
     },
     {
+      id: "3",
       name: "Tailwind CSS Workshop",
       description: "Master Tailwind CSS for modern web design.",
       topic: "CSS",
@@ -27,6 +30,7 @@ export function Dashboard() {
       participants: 32,
     },
     {
+      id: "4",
       name: "Node.js for Beginners",
       description: "Get started with Node.js and build your first server.",
       topic: "Node.js",
@@ -34,6 +38,7 @@ export function Dashboard() {
       participants: 22,
     },
     {
+      id: "5",
       name: "Python Data Science",
       description: "Explore data science with Python and Pandas.",
       topic: "Python",
@@ -41,6 +46,7 @@ export function Dashboard() {
       participants: 40,
     },
     {
+      id: "6",
       name: "UI/UX Design Principles",
       description: "Learn the fundamentals of UI/UX design.",
       topic: "Design",
@@ -48,6 +54,7 @@ export function Dashboard() {
       participants: 15,
     },
     {
+      id: "7",
       name: "Machine Learning Basics",
       description: "Understand the basics of machine learning.",
       topic: "Machine Learning",
@@ -55,6 +62,7 @@ export function Dashboard() {
       participants: 28,
     },
     {
+      id: "8",
       name: "DevOps Essentials",
       description: "Learn the essentials of DevOps practices.",
       topic: "DevOps",
@@ -62,6 +70,7 @@ export function Dashboard() {
       participants: 20,
     },
     {
+      id: "9",
       name: "GraphQL Fundamentals",
       description: "Learn how to use GraphQL for APIs.",
       topic: "GraphQL",
@@ -69,6 +78,7 @@ export function Dashboard() {
       participants: 12,
     },
     {
+      id: "10",
       name: "Docker for Developers",
       description: "Get started with Docker and containerization.",
       topic: "Docker",
@@ -101,10 +111,11 @@ export function Dashboard() {
             No rooms found matching your search.
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {displayedRooms.map((room, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
+            {displayedRooms.map((room) => (
               <Room
-                key={index}
+                key={room.id}
+                id={room.id}
                 name={room.name}
                 description={room.description}
                 topic={room.topic}
