@@ -1,11 +1,11 @@
 import Link from "next/link";
+import { SidebarModified } from "./_components/SidebarModified";
+import { Dashboard } from "@/components/ui/Dashboard";
 
 export default function Home() {
   return (
-    <main>
-      <h1>Welcome to EduConnect</h1>
-      <p>Your AI-Powered Learning Platform</p>
-      <Link href="/login">Login</Link>
-    </main>
+    <SidebarModified>
+      <Dashboard></Dashboard>
+    </SidebarModified>
   );
 }
