@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/Label";
 import {
   IconBrandGithub,
   IconBrandGoogle,
-  IconBrandOnlyfans,
+  IconBrandX,
 } from "@tabler/icons-react";
 
 export function SignupForm() {
