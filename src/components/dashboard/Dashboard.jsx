@@ -102,7 +102,7 @@ export function Dashboard() {
             {displayedRooms.length} rooms available
           </span>
 <br>
-<button type="button" className="p-4 font-semibold my-2 bg-orange-600">
+<button type="button" className="p-4 font-semibold my-2 bg-orange-600 w-30">
 + Create Room
 </button>
         </div>
