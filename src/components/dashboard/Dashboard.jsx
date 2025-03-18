@@ -101,10 +101,6 @@ export function Dashboard() {
           <span className="p-0 m-0 text-xs text-neutral-400 font-semibold">
             {displayedRooms.length} rooms available
           </span>
-<br>
-<div className="p-4 font-semibold my-2 bg-orange-600">
-Create Room
-</div>
         </div>
         <SearchBar rooms={allRooms} onSearch={handleSearch} />
       </div>
