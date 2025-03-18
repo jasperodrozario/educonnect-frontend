@@ -101,6 +101,9 @@ export function Dashboard() {
           <span className="p-0 m-0 text-xs text-neutral-400 font-semibold">
             {displayedRooms.length} rooms available
           </span>
+<button type="button" className="w-20 p-4 font-semibold my-2">
++ Create Room
+</button>
         </div>
         <SearchBar rooms={allRooms} onSearch={handleSearch} />
       </div>
