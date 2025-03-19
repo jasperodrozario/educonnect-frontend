@@ -16,11 +16,16 @@ const rooms = [
     topic: "React",
     host: "john_doe",
     participants: [
-      { id: "1", name: "John Doe", avatar: "/avatars/john.png", isHost: true },
-      { id: "2", name: "Alice Smith", avatar: "/avatars/alice.png" },
-      { id: "3", name: "Bob Johnson", avatar: "/avatars/bob.png" },
-      { id: "4", name: "Emma Davis", avatar: "/avatars/emma.png" },
-      { id: "5", name: "Michael Wilson", avatar: "/avatars/michael.png" },
+      {
+        id: "1",
+        name: "John Doe",
+        avatar: "/avatars/mantaka.jpg",
+        isHost: true,
+      },
+      { id: "2", name: "Alice Smith", avatar: "/avatars/mantaka.jpg" },
+      { id: "3", name: "Bob Johnson", avatar: "/avatars/mantaka.jpg" },
+      { id: "4", name: "Emma Davis", avatar: "/avatars/mantaka.jpg" },
+      { id: "5", name: "Michael Wilson", avatar: "/avatars/mantaka.jpg" },
     ],
     messages: [
       {
@@ -71,12 +76,12 @@ const rooms = [
       {
         id: "1",
         name: "Jane Smith",
-        avatar: "/avatars/jane.png",
+        avatar: "",
         isHost: true,
       },
-      { id: "2", name: "David Brown", avatar: "/avatars/david.png" },
-      { id: "3", name: "Sophia Miller", avatar: "/avatars/sophia.png" },
-      { id: "4", name: "Oliver Taylor", avatar: "/avatars/oliver.png" },
+      { id: "2", name: "David Brown", avatar: "/avatars/mantaka.jpg" },
+      { id: "3", name: "Sophia Miller", avatar: "/avatars/mantaka.jpg" },
+      { id: "4", name: "Oliver Taylor", avatar: "/avatars/mantaka.jpg" },
     ],
     messages: [
       {

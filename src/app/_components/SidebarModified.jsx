@@ -79,7 +79,7 @@ export function SidebarModified({
   return (
     <div
       className={cn(
-        "mx-auto flex w-full w-max-full flex-1 flex-col overflow-hidden rounded-md border border-neutral-200 bg-gray-100 md:flex-row dark:border-neutral-700 dark:bg-neutral-800",
+        "mx-auto flex w-full max-w-full flex-1 flex-col overflow-hidden rounded-md border border-neutral-200 bg-gray-100 md:flex-row dark:border-neutral-700 dark:bg-neutral-800",
         "h-screen"
       )}
     >
@@ -99,14 +99,13 @@ export function SidebarModified({
             {isLoggedIn ? (
               <SidebarLink
                 link={{
-                  label: "Jane Doe",
+                  label: "John Doe",
                   href: "/profile",
                   icon: (
-                    <Image
-                      src="https://assets.aceternity.com/manu.png"
-                      className="h-7 w-7 shrink-0 rounded-full"
-                      width={50}
-                      height={50}
+                    <img
+                      src="/avatars/mantaka.jpg"
+                      className="h-8 w-8
+                       rounded-full"
                       alt="Avatar"
                     />
                   ),
@@ -126,9 +125,9 @@ export const Logo = () => {
   return (
     <Link
       href="/"
-      className="relative z-20 flex items-center space-x-2 font-normal text-black"
+      className="relative z-20 px-[1rem] flex items-center space-x-2 py-1 text-sm font-normal text-black"
     >
-      <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-orange-600 dark:bg-white" />
+      <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-orange-400" />
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -143,9 +142,9 @@ export const LogoIcon = () => {
   return (
     <Link
       href="/"
-      className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-black"
+      className="relative z-20 px-[1rem] flex items-center space-x-2 py-[0.42rem] pt-[0.45rem] text-sm font-normal text-black"
     >
-      <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-black dark:bg-white" />
+      <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-orange-400 dark:bg-white" />
     </Link>
   );
 };

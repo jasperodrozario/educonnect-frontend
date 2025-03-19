@@ -96,7 +96,7 @@ export function AiChat({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-20 right-6 w-80 sm:w-96 h-[500px] max-h-[80vh] rounded-lg shadow-lg flex flex-col bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 overflow-hidden z-50">
+    <div className="fixed bottom-20 right-6 w-80 sm:w-96 h-[500px] max-h-[80vh] rounded-lg shadow-xl flex flex-col bg-blue/30 backdrop-blur-xl dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 overflow-hidden z-50">
       {/* Header */}
       <div className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-700 p-3">
         <div className="flex items-center gap-2">
@@ -131,7 +131,7 @@ export function AiChat({ isOpen, onClose }) {
                   "max-w-[85%] rounded-lg p-3",
                   message.sender === "You"
                     ? "bg-orange-600 text-white"
-                    : "bg-neutral-100 dark:bg-neutral-800"
+                    : "bg-neutral-200 dark:bg-neutral-800"
                 )}
               >
                 <div className="flex items-baseline">
@@ -141,7 +141,7 @@ export function AiChat({ isOpen, onClose }) {
                       "ml-2 text-xs",
                       message.sender === "You"
                         ? "text-orange-200"
-                        : "text-neutral-500 dark:text-neutral-400"
+                        : "text-neutral-600 dark:text-neutral-400"
                     )}
                   >
                     {formatMessageTime(message.timestamp)}
@@ -191,7 +191,7 @@ export function AiChat({ isOpen, onClose }) {
           />
           <Button
             type="submit"
-            className="ml-2 rounded-full bg-orange-600 px-4 w-11 h-11 text-white hover:bg-orange-700 hover:w-18 focus:outline-none focus:ring-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="ml-2 rounded-full bg-orange-600 px-4 w-11 h-11 text-white hover:bg-orange-600 hover:w-18 focus:outline-none focus:ring-2 focus:ring-orange-500 disabled:opacity-70 disabled:cursor-not-allowed"
             disabled={isLoading || !newMessage.trim()}
           >
             {isLoading ? (

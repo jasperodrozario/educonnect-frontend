@@ -1,131 +1,53 @@
 "use client";
 import { useState } from "react";
-import { Room } from "@/components/ui/Card";
+import { RoomCard } from "@/components/ui/RoomCard";
 import { SearchBar } from "@/components/ui/SearchBar";
+import { IconPlus } from "@tabler/icons-react";
+import { rooms } from "@/data/rooms";
 
 export function Dashboard() {
-  const allRooms = [
-    {
-      id: "1",
-      name: "Introduction to React",
-      description: "Learn the basics of React and build your first app.",
-      topic: "React",
-      host: "john_doe",
-      participants: 25,
-    },
-    {
-      id: "2",
-      name: "Advanced JavaScript",
-      description: "Dive deep into advanced JavaScript concepts.",
-      topic: "JavaScript",
-      host: "jane_smith",
-      participants: 18,
-    },
-    {
-      id: "3",
-      name: "Tailwind CSS Workshop",
-      description: "Master Tailwind CSS for modern web design.",
-      topic: "CSS",
-      host: "alice_wonder",
-      participants: 32,
-    },
-    {
-      id: "4",
-      name: "Node.js for Beginners",
-      description: "Get started with Node.js and build your first server.",
-      topic: "Node.js",
-      host: "bob_builder",
-      participants: 22,
-    },
-    {
-      id: "5",
-      name: "Python Data Science",
-      description: "Explore data science with Python and Pandas.",
-      topic: "Python",
-      host: "data_guru",
-      participants: 40,
-    },
-    {
-      id: "6",
-      name: "UI/UX Design Principles",
-      description: "Learn the fundamentals of UI/UX design.",
-      topic: "Design",
-      host: "design_master",
-      participants: 15,
-    },
-    {
-      id: "7",
-      name: "Machine Learning Basics",
-      description: "Understand the basics of machine learning.",
-      topic: "Machine Learning",
-      host: "ml_expert",
-      participants: 28,
-    },
-    {
-      id: "8",
-      name: "DevOps Essentials",
-      description: "Learn the essentials of DevOps practices.",
-      topic: "DevOps",
-      host: "devops_pro",
-      participants: 20,
-    },
-    {
-      id: "9",
-      name: "GraphQL Fundamentals",
-      description: "Learn how to use GraphQL for APIs.",
-      topic: "GraphQL",
-      host: "api_ninja",
-      participants: 12,
-    },
-    {
-      id: "10",
-      name: "Docker for Developers",
-      description: "Get started with Docker and containerization.",
-      topic: "Docker",
-      host: "container_king",
-      participants: 35,
-    },
-  ];
-
-  const [displayedRooms, setDisplayedRooms] = useState(allRooms);
+  const [displayedRooms, setDisplayedRooms] = useState(rooms);
 
   const handleSearch = (filteredRooms) => {
     setDisplayedRooms(filteredRooms);
   };
 
   return (
-    <div className="h-full w-full rounded-tl-2xl border border-neutral-200 bg-white p-6 md:px-10 py-6 overflow-scroll dark:border-neutral-700 dark:bg-neutral-900">
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-2xl font-bold">Study Rooms</h1>
-          <span className="p-0 m-0 text-xs text-neutral-400 font-semibold">
-            {displayedRooms.length} rooms available
-          </span>
-        </div>
-        <SearchBar rooms={allRooms} onSearch={handleSearch} />
+    <div className="h-full w-full rounded-tl-2xl bg-white  pb-6 overflow-scroll border dark:border-neutral-700 dark:bg-neutral-900">
+      <div className="flex sticky top-0 items-center justify-between mb-4 pb-4 pt-8 px-8 z-10 bg-white dark:bg-neutral-900">
+        <h1 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+          Study Rooms
+          <p className="py-1 font-semibold text-xs text-neutral-800 dark:text-neutral-400">
+            {rooms.length} rooms available
+          </p>
+        </h1>
+        <SearchBar rooms={rooms} onSearch={handleSearch} />
       </div>
 
-      <div>
-        {displayedRooms.length === 0 ? (
-          <div className="text-center py-10 text-neutral-500 dark:text-neutral-400">
-            No rooms found matching your search.
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
-            {displayedRooms.map((room) => (
-              <Room
-                key={room.id}
-                id={room.id}
-                name={room.name}
-                description={room.description}
-                topic={room.topic}
-                host={room.host}
-                participants={room.participants}
-              />
-            ))}
-          </div>
-        )}
-      </div>
+      <button className="flex items-center bg-orange-300 py-2 px-2 mx-8 my-4 rounded-full font-semibold text-sm bg-orange-500 text-white hover:bg-orange-400">
+        <IconPlus size={16} />
+        <p className="pb-[0.05rem] pr-2">Create Room</p>
+      </button>
+
+      {displayedRooms.length === 0 ? (
+        <div className="text-center px-8 py-10 my-4 text-neutral-500 dark:text-neutral-400">
+          No rooms found matching your search.
+        </div>
+      ) : (
+        <div className="my-2 px-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {displayedRooms.map((room) => (
+            <RoomCard
+              key={room.id}
+              id={room.id}
+              name={room.name}
+              description={room.description}
+              topic={room.topic}
+              host={room.host}
+              participants={room.participants}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

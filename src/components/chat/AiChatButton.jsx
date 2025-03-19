@@ -15,7 +15,7 @@ export function AiChatButton() {
     <>
       <Button
         onClick={toggleChat}
-        className="fixed bottom-6 right-6 h-12 w-12 rounded-full bg-orange-600 text-white shadow-lg hover:bg-orange-700"
+        className="fixed bottom-6 right-6 h-12 w-12 rounded-full bg-orange-500 hover:bg-orange-400 text-white shadow-lg"
         aria-label={isChatOpen ? "Close AI chat" : "Open AI chat"}
       >
         {isChatOpen ? (

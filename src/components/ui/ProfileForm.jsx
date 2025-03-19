@@ -13,7 +13,7 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 
-// Mock initial user data - in a real app, this would come from an API or context
+// Mock initial user data - this would come from an API later
 const initialUserData = {
   fullName: "Jane Doe",
   email: "jane.doe@example.com",

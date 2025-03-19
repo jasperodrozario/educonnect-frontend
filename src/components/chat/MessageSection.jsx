@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { IconSend } from "@tabler/icons-react";
 
-export function MessageSection({ messages: initialMessages, roomId }) {
+export function MessageSection({ messages: initialMessages }) {
   const [messages, setMessages] = useState(initialMessages || []);
   const [newMessage, setNewMessage] = useState("");
   const messagesEndRef = useRef(null);
@@ -52,9 +52,10 @@ export function MessageSection({ messages: initialMessages, roomId }) {
             messages.map((message) => (
               <div key={message.id} className="flex flex-col">
                 <div className="flex items-start">
-                  <div className="h-8 w-8 rounded-full bg-neutral-200 flex items-center justify-center text-sm font-medium">
-                    {message.sender.charAt(0)}
-                  </div>
+                  <img
+                    src="/avatars/mantaka.jpg"
+                    className="h-8 w-8 rounded-full object-cover"
+                  />
                   <div className="ml-2 flex-1">
                     <div className="flex items-baseline">
                       <span className="font-medium">{message.sender}</span>

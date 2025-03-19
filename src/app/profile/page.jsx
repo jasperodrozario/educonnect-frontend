@@ -14,9 +14,10 @@ export default function ProfilePage() {
         >
           <IconArrowLeft size={20} />
         </button>
-        <div className="h-10 w-10 rounded-full bg-orange-600 flex items-center justify-center text-white">
-          <IconUser size={20} />
-        </div>
+        <img
+          src="/avatars/mantaka.jpg"
+          className="h-10 w-10 rounded-full flex items-center justify-center text-white"
+        />
         <h1 className="text-2xl font-bold">Your Profile</h1>
       </div>
 
