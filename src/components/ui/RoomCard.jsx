@@ -27,8 +27,8 @@ export const RoomCard = ({
             <p className="text-orange-400 text-xs hover:underline">{host}</p>
           </div>
 
-          <div className="flex-none px-3 py-1 rounded-xl bg-[#525369]">
-            <p className="text-subtle-white/75 text-xs font-bold">{topic}</p>
+          <div className="flex-none px-3 py-1 rounded-xl bg-orange-500">
+            <p className="text-xs font-semibold text-white">{topic}</p>
           </div>
         </div>
       </div>

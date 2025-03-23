@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/Sidebar";
+import { useRouter } from "next/navigation";
 
 import {
   IconBrandTabler,
@@ -8,10 +9,11 @@ import {
   IconUserBolt,
   IconLogin,
   IconLogout,
+  IconHome,
+  IconBrandGithubCopilot,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { motion } from "motion/react";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export function SidebarModified({
@@ -19,15 +21,16 @@ export function SidebarModified({
   loginStatus = false,
   animate = true,
 }) {
+  const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   // Links that appear without authentication
   const baseLinks = [
     {
-      label: "Dashboard",
-      href: "/",
+      label: "AI Assistant",
+      href: "/ai-chat",
       icon: (
-        <IconBrandTabler className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <IconBrandGithubCopilot className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
   ];
@@ -35,8 +38,22 @@ export function SidebarModified({
   // Links that appear only when logged in
   const authenticatedLinks = [
     {
+      label: "Rooms",
+      href: "/",
+      icon: (
+        <IconHome className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+      ),
+    },
+    {
+      label: "Dashboard",
+      href: "/dashboard",
+      icon: (
+        <IconBrandTabler className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+      ),
+    },
+    {
       label: "Profile",
-      href: "/profile", // Updated href to route to the profile page
+      href: "/profile",
       icon: (
         <IconUserBolt className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),

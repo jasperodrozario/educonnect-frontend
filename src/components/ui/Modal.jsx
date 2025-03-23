@@ -45,7 +45,7 @@ export default function Modal({ children, className }) {
           <div
             ref={wrapper}
             className={cn(
-              "relative mx-auto max-w-lg rounded-lg bg-white p-6 shadow-lg dark:bg-neutral-900",
+              "relative mx-auto w-300 max-w-lg rounded-lg bg-white p-6 shadow-lg dark:bg-neutral-900",
               className
             )}
           >

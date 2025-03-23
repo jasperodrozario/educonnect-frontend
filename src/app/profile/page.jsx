@@ -1,6 +1,6 @@
 "use client";
-import { ProfileForm } from "@/components/ui/ProfileForm";
-import { IconUser, IconArrowLeft } from "@tabler/icons-react";
+import { ProfileForm } from "@/components/forms/ProfileForm";
+import { IconArrowLeft } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 
 export default function ProfilePage() {
@@ -10,7 +10,7 @@ export default function ProfilePage() {
       <div className="mb-8 flex items-center gap-3">
         <button
           onClick={() => router.back()}
-          className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-neutral-800"
+          className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-neutral-300 hover:dark:bg-neutral-800"
         >
           <IconArrowLeft size={20} />
         </button>

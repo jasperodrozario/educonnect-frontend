@@ -212,12 +212,11 @@ export function ProfileForm() {
     <div>
       {successMessage && (
         <div className="mb-6 p-3 bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-200 rounded-md border border-green-200 dark:border-green-800 flex items-center">
-          {/* <IconAlertCircle size={16} className="mr-2" /> */}
           {successMessage}
         </div>
       )}
 
-      <div className="divide-y divide-neutral-200 dark:divide-neutral-700">
+      <div className="divide-y divide-neutral-200 dark:divide-neutral-900">
         {renderFieldValue(
           "fullName",
           <IconUser size={18} className="text-orange-600" />
