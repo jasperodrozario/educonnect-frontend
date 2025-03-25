@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/Sidebar";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 import {
   IconBrandTabler,
@@ -21,7 +21,7 @@ export function SidebarModified({
   loginStatus = false,
   animate = true,
 }) {
-  const router = useRouter();
+  const pathname = usePathname();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   // Links that appear without authentication
@@ -107,7 +107,14 @@ export function SidebarModified({
             <div className="mt-8 flex flex-col gap-2">
               {links.map((link, idx) => (
                 <div key={idx} onClick={link.onClick}>
-                  <SidebarLink link={link} />
+                  <SidebarLink
+                    link={link}
+                    className={
+                      link.href === pathname
+                        ? "bg-orange-400 hover:bg-orange-400 dark:bg-orange-500 dark:hover:bg-orange-500"
+                        : ""
+                    }
+                  />
                 </div>
               ))}
             </div>
@@ -127,6 +134,9 @@ export function SidebarModified({
                     />
                   ),
                 }}
+                className={
+                  "<dark:hover:bg-orange-5></dark:hover:bg-orange-5>00"
+                }
               />
             ) : (
               <div className=""></div>

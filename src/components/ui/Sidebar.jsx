@@ -128,7 +128,7 @@ export const SidebarLink = ({ link, className, ...props }) => {
           link.label === "John Doe"
             ? "pl-[0.8rem]"
             : "px-[0.65rem] mx-2 rounded-md"
-        } hover:bg-orange-300 dark:hover:bg-orange-500`,
+        } hover:bg-orange-300 dark:hover:bg-orange-400`,
         className
       )}
       {...props}

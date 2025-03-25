@@ -3,7 +3,13 @@ import { useState, useRef, useEffect } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-import { IconX, IconSend, IconBrandGithubCopilot } from "@tabler/icons-react";
+import {
+  IconX,
+  IconSend,
+  IconBrandGithubCopilot,
+  IconArrowUpRight,
+} from "@tabler/icons-react";
+import Link from "next/link";
 
 export function AiChat({ isOpen, onClose }) {
   const [messages, setMessages] = useState([
@@ -104,6 +110,12 @@ export function AiChat({ isOpen, onClose }) {
             <IconBrandGithubCopilot size={18} />
           </div>
           <h3 className="font-medium">AI Assistant</h3>
+          <Link
+            href={"/ai-chat"}
+            className="mt-1 hover:border hover:border-neutral-200 hover:dark:border-neutral-700 hover:rounded-full hover:p-1"
+          >
+            <IconArrowUpRight size={18} />
+          </Link>
         </div>
         <Button
           variant="ghost"

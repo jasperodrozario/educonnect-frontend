@@ -11,7 +11,7 @@ export default function SettingsPage() {
       <div className="mb-8 flex items-center gap-3">
         <button
           onClick={() => router.back()}
-          className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-neutral-800"
+          className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-neutral-300 hover:dark:bg-neutral-800"
         >
           <IconArrowLeft size={20} />
         </button>
