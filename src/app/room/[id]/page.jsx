@@ -76,7 +76,7 @@ const rooms = [
       {
         id: "1",
         name: "Jane Smith",
-        avatar: "",
+        avatar: "/avatars/mantaka.jpg",
         isHost: true,
       },
       { id: "2", name: "David Brown", avatar: "/avatars/mantaka.jpg" },
@@ -162,7 +162,7 @@ export default function RoomPage() {
           <div className="flex items-center space-y-7 space-x-2">
             <button
               onClick={() => router.back()}
-              className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-neutral-800"
+              className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-neutral-300 hover:dark:bg-neutral-800"
             >
               <IconArrowLeft size={20} />
             </button>
@@ -172,7 +172,7 @@ export default function RoomPage() {
             </span>
           </div>
           <div className="flex items-center space-x-2">
-            <span className="px-3 py-1 rounded-xl bg-[#525369] text-white text-xs font-bold">
+            <span className="px-3 py-1 rounded-xl bg-orange-500 text-white text-xs font-semibold">
               {room.topic}
             </span>
             <span className="text-xs text-neutral-500">
